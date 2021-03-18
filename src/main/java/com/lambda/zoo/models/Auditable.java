@@ -14,13 +14,13 @@ import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable {
+abstract class Auditable {
     @CreatedBy
-    protected String createdBy;
+    protected String createdby;
 
     @CreatedDate
     @Temporal(TemporalType.TIMESTAMP)
-    protected Date createdDate;
+    protected Date createddate;
 
     @LastModifiedBy
     protected String lastmodifiedby;
@@ -28,4 +28,20 @@ public class Auditable {
     @LastModifiedDate
     @Temporal(TemporalType.TIMESTAMP)
     protected Date lastmodifieddate;
+
+    public String getCreatedBy() {
+        return createdby;
+    }
+
+    public Date getCreatedDate() {
+        return createddate;
+    }
+
+    public String getLastModifiedBy() {
+        return lastmodifiedby;
+    }
+
+    public Date getLastModifiedDate() {
+        return lastmodifieddate;
+    }
 }
