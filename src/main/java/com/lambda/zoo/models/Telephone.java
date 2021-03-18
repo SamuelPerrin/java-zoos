@@ -11,8 +11,8 @@ public class Telephone extends Auditable {
     @GeneratedValue
     private long phoneid;
 
-    private String phonenumber;
     private String phonetype;
+    private String phonenumber;
 
     @ManyToOne
     @JoinColumn(name = "zooid")
@@ -22,10 +22,10 @@ public class Telephone extends Auditable {
     public Telephone() {
     }
 
-    public Telephone(long phoneid, String phonenumber, String phonetype, Zoo zoo) {
+    public Telephone(long phoneid, String phonetype, String phonenumber, Zoo zoo) {
         this.phoneid = phoneid;
-        this.phonenumber = phonenumber;
         this.phonetype = phonetype;
+        this.phonenumber = phonenumber;
         this.zoo = zoo;
     }
 
@@ -41,16 +41,16 @@ public class Telephone extends Auditable {
         return phonenumber;
     }
 
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
     public String getPhonetype() {
         return phonetype;
     }
 
     public void setPhonetype(String phonetype) {
         this.phonetype = phonetype;
+    }
+
+    public void setPhonenumber(String phonenumber) {
+        this.phonenumber = phonenumber;
     }
 
     public Zoo getZoo() {

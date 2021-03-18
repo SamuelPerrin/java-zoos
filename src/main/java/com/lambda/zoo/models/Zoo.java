@@ -15,12 +15,13 @@ public class Zoo extends Auditable {
 
     private String zooname;
 
-    @OneToMany(mappedBy = "zoo", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ZooAnimal> animals = new ArrayList<>();
-
     @OneToMany(mappedBy = "zoo",  cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnoreProperties(value = "zoo", allowSetters = true)
     private List<Telephone> telephones = new ArrayList<>();
+
+    @OneToMany(mappedBy = "zoo", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnoreProperties(value = "zoo", allowSetters = true)
+    private List<ZooAnimal> animals = new ArrayList<>();
 
     public Zoo() {
     }
@@ -48,19 +49,19 @@ public class Zoo extends Auditable {
         this.zooname = zooname;
     }
 
-    public List<ZooAnimal> getAnimals() {
-        return animals;
-    }
-
-    public void setAnimals(List<ZooAnimal> animals) {
-        this.animals = animals;
-    }
-
     public List<Telephone> getTelephones() {
         return telephones;
     }
 
     public void setTelephones(List<Telephone> telephones) {
         this.telephones = telephones;
+    }
+
+    public List<ZooAnimal> getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(List<ZooAnimal> animals) {
+        this.animals = animals;
     }
 }

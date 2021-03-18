@@ -26,8 +26,8 @@ public class ZooController {
     }
 
     @GetMapping(value = "/zoo/{zooid}", produces = "application/json")
-    public ResponseEntity<?> getZooById(@PathVariable long id) {
-        Zoo zoo = zooService.getZooById(id);
+    public ResponseEntity<?> getZooById(@PathVariable long zooid) {
+        Zoo zoo = zooService.getZooById(zooid);
         return new ResponseEntity<>(zoo, HttpStatus.OK);
     }
 }
